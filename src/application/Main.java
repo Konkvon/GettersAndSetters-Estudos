@@ -20,8 +20,8 @@ public class Main {
 
 		if (resp.equals("y")) {
 			System.out.print("Valor depósito inicial: ");
-			money = sc.nextDouble();
-			conta = new Account(id_account, name, money);
+			Double initialDeposit = sc.nextDouble();
+			conta = new Account(id_account, name, initialDeposit);
 		} else {
 			conta = new Account(id_account, name);
 		}
