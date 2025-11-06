@@ -10,10 +10,10 @@ public class Account {
 		this.name = name;
 	}
 	
-	public Account(String id_account, String name, Double money) {
+	public Account(String id_account, String name, Double initialDeposit) {
 		this.id_account = id_account;
 		this.name = name;
-		this.money = money;
+		addMoney(initialDeposit);
 	}
 	
 	public String getID() {
