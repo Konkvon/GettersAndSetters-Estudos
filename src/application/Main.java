@@ -32,7 +32,7 @@ public class Main {
 		while (!resp.equals("0")) {
 			System.out.println();
 			System.out.println("Escolha uma opção:");
-			System.out.println("Depositar (1), Sacar (2), Sair (0)");
+			System.out.println("Depositar (1), Sacar (2), Alterar Nome(3), Sair (0)");
 			System.out.print("Opção: ");
 			resp = sc.next();
 
@@ -41,17 +41,26 @@ public class Main {
 				money = sc.nextDouble();
 				conta.addMoney(money);
 				System.out.println("Depósito realizado com sucesso!");
-				System.out.println("Dados da conta atualizados:");
-				System.out.println(conta);
 
 			} else if (resp.equals("2")) {
 				System.out.print("Valor para sacar: ");
 				money = sc.nextDouble();
 				String saque = conta.removeMoney(money) ? "\nSaque realizado com sucesso!\n" : "\nSaldo insuficiente!\n";
 				System.out.println(saque);
-				System.out.println("Dados da conta atualizados:");
-				System.out.println(conta);
+				
+			} else if(resp.equals("3")) {
+				System.out.printf("Nome atual da conta: " + conta.getName());
+				System.out.print("\nDeseja alterar o nome (y/n): ");
+				resp = sc.next();
+				if (resp.equals("y")) {
+					System.out.print("Digite novo nome: ");
+					String newname = sc.next();
+					conta.setName(newname);
+				}
 			}
+			
+			System.out.println("Dados da conta atualizados:");
+			System.out.println(conta);
 		}
 		System.out.println("\nObrigado!");
 		sc.close();
